@@ -30,9 +30,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -40,7 +49,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -100,5 +109,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ed9b3055-4560-47a2-988e-f81cf740ffee"
   }
 }

@@ -1,0 +1,11 @@
+<section class="row justify-content-center mt-3 g-3">
+   <div class="col-md-4" *ngIf="brandDetails">
+      <div class="bg-main-light p-2">
+         <img class="w-100 mb-1" [src]="brandDetails.image" />
+         <div class="mt-2 text-center">
+            <h3 class="fs-6 fw-bolder">{{brandDetails.name}}</h3>
+            <span>{{brandDetails.slug}}</span>
+         </div>
+      </div>
+   </div>
+</section>

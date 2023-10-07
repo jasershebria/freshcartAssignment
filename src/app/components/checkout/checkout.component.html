@@ -1,0 +1,24 @@
+
+<section  class="row justify-content-center mt-5">
+ <div class="col-md-5">
+   <form (ngSubmit)="checkOut(checkoutForm)" [formGroup]="checkoutForm" >
+      <div class="mb-3">
+         <label for="details">details</label>
+         <input class="form-control mt-2" id="details" type="text" placeholder="details" formControlName="details" >
+      </div>
+
+      <div class="mb-3">
+         <label for="phone">Phone</label>
+         <input class="form-control mt-2" id="phone" type="tel" placeholder="Phone Number" formControlName="phone" >
+      </div>
+      <div class="mb-3">
+         <label for="city">City</label>
+         <input class="form-control mt-2" id="city" type="text" placeholder="city Name"  formControlName="city" >
+      </div>
+
+      <div >
+         <button class="btn bg-main text-white" type="submit">Submit</button>
+      </div>
+   </form>
+ </div>
+</section>

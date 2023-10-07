@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg p-3 navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand">
+      <img src="assets/images/freshcart-logo.svg">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLoggin">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="home" routerLinkActive="active fw-bold">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="products" routerLinkActive="active fw-bold">products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="categories"
+            routerLinkActive="active fw-bold">Categories</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="brands" routerLinkActive="active fw-bold">Brands</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown " *ngIf="isLoggin">
+          <a class="nav-link text-main dropdown-toggle" routerLinkActive="active"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a routerLink="/forgetpassword" class="dropdown-item" >ForgetPassword</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link  position-relative" aria-current="page" routerLink="wishlist"
+            routerLinkActive="active fw-bold">
+
+            <span class="bg-main position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+              {{wishListNumber}}
+
+            </span>
+
+
+            <i [class.redHeart]="flag" class="fa-solid fa-heart"></i>
+          </a>
+        </li>
+
+
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link  position-relative" aria-current="page" routerLink="cart"
+            routerLinkActive="active fw-bold">
+
+            <span class="bg-main position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+              {{cartNumber}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+
+            <i class="fa-solid  fa-shopping-cart text-main"></i>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin">
+          <a class="nav-link" aria-current="page" (click)="logOut()" routerLinkActive="active fw-bold">Logout</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin==false">
+          <a class="nav-link" aria-current="page" routerLink="login" routerLinkActive="active fw-bold">Login</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggin==false">
+          <a class="nav-link" aria-current="page" routerLink="register" routerLinkActive="active fw-bold">Register</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

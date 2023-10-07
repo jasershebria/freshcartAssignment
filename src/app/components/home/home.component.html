@@ -1,0 +1,82 @@
+
+<section class="" id="mainSlider">
+   <div class="row">
+      <div class="col-md-9">
+
+         <div>
+            <owl-carousel-o  [options]="mainSliderOptions">
+               <ng-template carouselSlide>
+                  <img src="../../../assets/images/slider-image-1.jpeg" />
+               </ng-template>  
+               <ng-template carouselSlide>
+                  <img  src="../../../assets/images/slider-image-2.jpeg" />
+               </ng-template>  
+               <ng-template carouselSlide>
+                  <img  src="../../../assets/images/slider-image-3.jpeg" />
+               </ng-template>  
+             </owl-carousel-o>
+         </div>
+         
+      </div>
+      <div class="col-md-3">
+
+         <img  src="../../../assets/images/side1.png" />
+
+         <img  src="../../../assets/images/side2.jpeg" />
+
+      </div>
+
+   </div>
+</section>
+
+
+<section class="py-4" *ngIf="allCategories.length > 0">
+   <h2 class="mb-4">Popular Categories</h2>
+   <owl-carousel-o [options]="customOptions" >
+
+      <ng-container *ngFor="let slide of allCategories">
+        <ng-template carouselSlide [id]="slide._id">
+          <a [routerLink]="['/specificcategory',slide._id]">
+            <img style="height: 300px;" [src]="slide.image" [alt]="slide.alt" [title]="slide.title">
+          </a>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+</section>
+
+<div class="w-50 mx-auto p-2">
+   <input #search placeholder="Search" class="form-control" >
+</div>
+
+<section class="row g-2">
+   <h2 class="mb-4">Popular Products</h2>
+
+
+   
+
+   <div class="col-md-2" *ngFor="let product of allProducts|search:search.value">
+     <div class="product p-2">
+      <a [routerLink]="['/productdetails',product._id]">
+         <div >
+            <img class="w-100 h-25 mb-1" [src]="product.imageCover" />
+            <h4 class="fs-6 text-main font-sm fw-bold">{{product.category.name}}</h4>
+            <h3 class="fs-6 fw-bolder">{{product.title | slice:2}}</h3>
+            <div class="d-flex justify-content-between align-items-center">
+               <span>{{product.price | currency:"EGP"}}</span>
+               <div>
+                  <i class="fas fa-star rating-color"></i>
+                  <span>{{product.ratingsAverage}}</span>
+               </div>  
+            </div>
+         </div>
+        </a>
+        <div class="d-flex mt-2 justify-content-between align-items-center">
+            <button (click)="addToCart(product._id)" class="btn  bg-main text-white">Add Product</button>
+            <button (click)="addToWishlist(product._id)" class="fa-1x btn btn-sm  btn-outline-danger">
+               <i  class="fa-solid fa-heart"></i>
+            </button>
+        </div>
+     </div>
+   </div>
+</section>

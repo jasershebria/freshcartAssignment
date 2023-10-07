@@ -1,0 +1,65 @@
+<section>
+  <ng-template >eeeee</ng-template>
+  <table class="mt-5" >
+    <thead>
+      <tr>
+        <th>Product Num</th>
+        <th>Product image</th>
+        <th>Product title</th>
+        <th>Count</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of carDetails?.products ; let inedx  = index;">
+        <td class="col-2">{{inedx+1}}</td>
+        <td class="col-2">
+          <img class="w-75" [src]="product?.product.imageCover">
+        </td>
+        <td class="col-2">{{product?.product.title}}</td>
+        <td class="col-2">
+          <button class="btn btn-sm" (click)="updateCartProduct(product?.product._id,product.count-1)">-</button>
+          <span class="mx-2">{{product?.count}}</span>
+          <button class="btn btn-sm" (click)="updateCartProduct(product?.product._id,product.count+1)">+</button>
+        </td>
+        <td class="col-2">{{product?.price}}</td>
+        <td class="col-2">
+          <button class="porder-main btn" (click)="removeCardItem(product?.product._id)">
+             <i class=" fa-regular fa-trash-can"></i>
+             Remove
+          </button>
+        </td>
+      </tr>
+    </tbody>
+ 
+     <tfoot >
+       <tr >
+         <td colspan="5">
+           <span class="p-3 fa-2x fw-bolder">TotalPrice: {{carDetails?.totalCartPrice}}</span>
+         </td>
+ 
+         <td colspan="2">
+           <button (click)="clearCart()" class="btn btn-outline-danger">
+             <i class=" fa-regular fa-trash-can"></i>
+             Clear All
+           </button>
+         </td>
+ 
+        
+       </tr>
+ 
+       <tr >
+         <td colspan="5">
+           <button [routerLink]="['/checkout',carDetails?._id]" class="btn btn-outline-danger">
+             CheackOut
+           </button>
+         </td>
+       </tr>
+     </tfoot>
+      
+  </table>
+</section>
+
+
+
